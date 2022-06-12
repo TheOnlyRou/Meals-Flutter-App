@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/meal_item.dart';
 import '../models/meal.dart';
 
+/// Screen of the meals within each Category
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
 
@@ -15,8 +16,8 @@ class CategoryMealsScreen extends StatefulWidget {
 }
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
-  String categoryTitle;
-  List<Meal> displayedMeals;
+  late String categoryTitle;
+  late List<Meal> displayedMeals;
   var _loadedInitData = false;
 
   @override
@@ -29,9 +30,10 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   void didChangeDependencies() {
     if (!_loadedInitData) {
       final routeArgs =
-          ModalRoute.of(context).settings.arguments as Map<String, String>;
-      categoryTitle = routeArgs['title'];
+          ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+      final categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
+      // where is a filtering keyword that iterates on a list with the goal of extracting some elements
       displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(categoryId);
       }).toList();
@@ -48,6 +50,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryTitle),

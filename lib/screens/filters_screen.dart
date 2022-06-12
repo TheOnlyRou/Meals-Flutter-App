@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/main_drawer.dart';
 
+
+/// Filter screen where user can filter meals according to certain criteria
 class FiltersScreen extends StatefulWidget {
   static const routeName = '/filters';
 
@@ -22,10 +24,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
 
   @override
   initState() {
-    _glutenFree = widget.currentFilters['gluten'];
-    _lactoseFree = widget.currentFilters['lactose'];
-    _vegetarian = widget.currentFilters['vegetarian'];
-    _vegan = widget.currentFilters['vegan'];
+    _glutenFree = widget.currentFilters['gluten'] as bool;
+    _lactoseFree = widget.currentFilters['lactose'] as bool;
+    _vegetarian = widget.currentFilters['vegetarian'] as bool;
+    _vegan = widget.currentFilters['vegan'] as bool;
     super.initState();
   }
 
@@ -41,7 +43,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
       subtitle: Text(
         description,
       ),
-      onChanged: updateValue,
+      onChanged: (_){updateValue();},
     );
   }
 
@@ -72,7 +74,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             padding: EdgeInsets.all(20),
             child: Text(
               'Adjust your meal selection.',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline1,
             ),
           ),
           Expanded(

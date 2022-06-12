@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/filters_screen.dart';
 
+/// Widget that displays the side menu
 class MainDrawer extends StatelessWidget {
   Widget buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
@@ -17,7 +18,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: tapHandler,
+      onTap: () {tapHandler();},
     );
   }
 

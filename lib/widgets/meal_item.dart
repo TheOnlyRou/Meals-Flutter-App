@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../screens/meal_detail_screen.dart';
 import '../models/meal.dart';
 
+
+/// widget that displays a Meal object's data in a fancy manner
 class MealItem extends StatelessWidget {
   final String id;
   final String title;
@@ -75,6 +77,7 @@ class MealItem extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
+                // ClipRRect is used to force its children to have rounded rectangles (it clips its children into rounded rectangles)
                 ClipRRect(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),

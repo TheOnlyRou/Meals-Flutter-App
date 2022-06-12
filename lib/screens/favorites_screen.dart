@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../widgets/meal_item.dart';
 
+/// ListView widget with favorited meals
 class FavoritesScreen extends StatelessWidget {
   final List<Meal> favoriteMeals;
 
